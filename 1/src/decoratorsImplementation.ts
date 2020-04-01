@@ -13,15 +13,28 @@ function CustomerInformation(customerInformation: any) {
     }
 }
 
-function EntityDonoter(config: any) {
+function EntityDonoter(type: any) {
     return function (target: any) {
-        console.log("This is ", `${config.type}`);
+        console.log("This is ", `${type}`);
     }
 }
 
-@EntityDonoter({ type: 'Entity'})
+function Input(customerId: number) {
+    return function (target: any, key: string) {
+        Object.defineProperty(target, key, {
+            configurable: false,
+            get: () => customerId
+        });
+    }
+}
+
+
+@EntityDonoter('Entity')
 @CustomerInformation({ customerType: 'New Customer' })
 class Customer {
+
+    @Input(1)
+    customerId: number;
     constructor(private name: string, private age: number){}
 
     @CustomerLogger 
@@ -34,4 +47,8 @@ class Customer {
 const customer = new Customer('Ujjwal', 28) as any;
 
 console.log(customer.getCustomerDetails());
-console.log(`${customer.name} ${customer.firstName} is ${customer.customerInformation.customerType}`);
+
+console.log(`Id: ${customer.customerId}`);
+console.log(`Name: ${customer.name}`);
+console.log(`Age: ${customer.age}`);
+console.log(`Type: ${customer.customerInformation.customerType}`);
