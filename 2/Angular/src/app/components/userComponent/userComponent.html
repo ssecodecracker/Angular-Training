@@ -1,0 +1,12 @@
+<div *ngFor="let user of userData; index as i">
+  <h3>Details for User {{i+1}}</h3>
+  <!-- User Component -->
+  <p><b>Name</b> : {{user.name}}</p>
+  <p><b>Username</b> : {{user.username}}</p>
+  <p><b>Email</b> : <a href="mailto: {{user.email}}">{{user.email}}</a></p>
+  <!-- Address Component -->
+  <app-address [userAddress]="user.address"></app-address>
+  <!-- Company Component -->
+  <app-company [companyData]="user.company"></app-company>
+  <h3>-----------------------------------------------------------------------------------------------------------------</h3>
+</div>
