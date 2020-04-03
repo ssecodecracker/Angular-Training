@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <div class="todoCardsContainer col-md-4" *ngFor="let todo of todos; index as i">
+        <div class="todoCards">
+          <h5><b>Todo {{i+1}}</b></h5>
+          <p><b>Status: </b>{{todo.status}}</p>
+          <p><b>Desciption: </b>{{todo.description}}</p>
+          <button (click)="completeTodo(i)">Complete Todo</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 formContainer">
+      <app-todoform (sendRequest)="getTodoData($event)"></app-todoform>
+    </div>
+  </div>
+</div>
