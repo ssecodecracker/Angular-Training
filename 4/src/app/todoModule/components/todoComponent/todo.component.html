@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-messages></app-messages>
+      <div class="todoCardsContainer col-md-3" *ngFor="let todo of todos; index as i">
+        <div class="todoCards">
+          <h5><b>Todo {{i+1}}</b></h5>
+          <p><b>Status: </b>{{todo.status}}</p>
+          <p><b>Desciption: </b>{{todo.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
