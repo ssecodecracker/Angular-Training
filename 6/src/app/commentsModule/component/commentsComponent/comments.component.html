@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="commentCardsContainer col-md-3" *ngFor="let comment of comments">
+        <div class="commentCards">
+          <p><b>Post Id: </b>{{comment.postId}}</p>
+          <p><b>Id: </b>{{comment.id}}</p>
+          <p><b>Name: </b>{{comment.name}}</p>
+          <p><b>Email: </b><a href="mailto: {{comment.email}}">{{comment.email}}</a></p>
+          <p><b>Body: </b>{{comment.body}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

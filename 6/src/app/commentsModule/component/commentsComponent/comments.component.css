@@ -1,0 +1,17 @@
+.commentCardsContainer  {
+  display: inline-flex;
+  margin-top: 10px;
+  padding: 0 5px;
+  max-height: 296px;
+  overflow: hidden;
+}
+
+.commentCards {
+  background: antiquewhite;
+  padding: 10px;
+}
+
+.formContainer {
+  background: antiquewhite;
+  margin-top: 10px;
+}

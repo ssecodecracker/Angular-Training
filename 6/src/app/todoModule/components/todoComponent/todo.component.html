@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-messages></app-messages>
+      <div>
+
+      </div>
+      <table class="table table-bordered">
+        <tr>
+          <th>Id</th>
+          <th>User Id</th>
+          <th>Title
+              <span style="float: right;">
+                (Sort  Order :
+            <label >
+              <input type="radio" name="method" [(ngModel)]="order" value="asc"> Ascending
+              </label>
+
+            <label >
+              <input type="radio" name="method" [(ngModel)]="order" value="desc"> Descending
+              </label>)
+              </span>
+          </th>
+          <th>completed</th>
+        </tr>
+        <tr  *ngFor="let todo of (todos | async | sort: order) ">
+          <td>{{todo.id}}</td>
+          <td>{{todo.userId}}</td>
+          <td>{{todo.title}}</td>
+          <td>{{todo.completed}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
